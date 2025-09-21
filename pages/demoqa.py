@@ -13,11 +13,4 @@ class DemoQa(BasePage):
 
         self.icon = WebElement(driver, '#app > header > a')
         self.button_elements = WebElement(driver, '#app > div > div > div.home-body > div > div:nth-child(1)')
-
-
-    # def exist_icon(self):
-    #     try:
-    #         self.icon.find_element()
-    #     except NoSuchElementException:
-    #         return False
-    #     return True
+        self.footer_text = WebElement(driver, 'footer')

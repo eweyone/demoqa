@@ -21,3 +21,6 @@ class WebElement:
         except NoSuchElementException:
             return False
         return True
+
+    def get_text(self):
+        return self.find_element().text
