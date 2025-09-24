@@ -9,6 +9,7 @@ class FormPage(BasePage):
         self.base_url = 'https://demoqa.com/automation-practice-form'
         super().__init__(driver, self.base_url)
 
+        self.user_form = WebElement(driver, '#userForm')
         self.first_name = WebElement(driver, '#firstName')
         self.last_name = WebElement(driver, '#lastName')
         self.user_email = WebElement(driver, '#userEmail')
