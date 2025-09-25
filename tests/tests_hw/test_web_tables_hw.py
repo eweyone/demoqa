@@ -28,14 +28,9 @@ def test_web_tables_add(browser):
     time.sleep(2)
     web_tables.btn_modal_submit.click()
     assert not web_tables.modal_content.exist()
-    # assert web_tables.btn_edit_4.exist()
     assert web_tables.row_exists('test1', 'test2')
 
     # Проверка функциональности кнопки Edit(карандаш)
-
-    # old_name = web_tables.row_4_name.get_text()
-    # assert old_name == 'test1'
-    # web_tables.btn_edit_4.click()
     web_tables.click_edit_by_name('test1', 'test2')
     assert web_tables.modal_content.exist()
 
@@ -46,17 +41,10 @@ def test_web_tables_add(browser):
     assert not web_tables.modal_content.exist()
 
     # Проверка изменения данных в строке таблицы
-
-    # new_name = web_tables.row_4_name.get_text()
-    # assert new_name != old_name
-    # assert new_name == 'test11'
     assert not web_tables.row_exists('test1', 'test2')
     assert web_tables.row_exists('test11', 'test2')
 
     # Проверка функциональности кнопки Delete(корзина) + проверка изменения данных в строке таблицы(строка удалена)
-
-    # web_tables.btn_delete_row_4.click()
-    # assert web_tables.row_4.get_text().strip() == '' # Метод .strip() удаляет все пробелы, без него была ошибка.
     web_tables.click_delete_by_name('test11', 'test2')
     assert not web_tables.row_exists('test11', 'test2')
     time.sleep(2)

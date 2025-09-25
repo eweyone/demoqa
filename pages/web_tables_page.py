@@ -25,11 +25,6 @@ class WebTables(BasePage):
         self.modal_department = WebElement(driver, '#department')
         self.btn_modal_submit = WebElement(driver, '#submit')
 
-        # self.row_4 = WebElement(driver, 'div:nth-child(4) > div > div')
-        # self.row_4_name = WebElement(driver, 'div.rt-tr-group:nth-of-type(4) div.rt-td:nth-child(1)')
-        # self.btn_edit_4 = WebElement(driver, '#edit-record-4')
-        # self.btn_delete_row_4 = WebElement(driver, '#delete-record-4')
-
         self.rows = WebElement(driver, '.rt-tr-group')
         self.cells = WebElement(driver, '.rt-td')
         self.select_rows_per_page = WebElement(driver, 'span.select-wrap.-pageSizeOptions > select')
