@@ -57,6 +57,9 @@ class WebElement:
             return value
         return True
 
+    def get_dom_attribute_new(self, name: str):
+        return self.find_element().get_dom_attribute(name)
+
     def scroll_to_element(self):
         self.driver.execute_script(
             'window.scrollTo(0, document.body.scrollHeight);',
