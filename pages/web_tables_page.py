@@ -25,7 +25,10 @@ class WebTables(BasePage):
         self.modal_department = WebElement(driver, '#department')
         self.btn_modal_submit = WebElement(driver, '#submit')
 
+        self.all_rows = WebElement(driver, '.rt-tr')
         self.rows = WebElement(driver, '.rt-tr-group')
+        self.header_cells_common_class = WebElement(driver, '.rt-th')
+        self.header_cells = WebElement(driver, '.rt-resizable-header-content')
         self.cells = WebElement(driver, '.rt-td')
         self.select_rows_per_page = WebElement(driver, 'span.select-wrap.-pageSizeOptions > select')
         self.btn_next = WebElement(driver, 'div.-next > button')
@@ -36,16 +39,6 @@ class WebTables(BasePage):
     # Метод для поиска всех ячеек в строке
     def get_row_cells(self, row):
         return row.find_elements(By.CSS_SELECTOR, '.rt-td')
-
-    # Метод для сохранения всех данных строки
-    def get_rows_data(self):
-        rows = self.rows.find_elements()
-        table_data = []
-        for row in rows:
-            cells = self.get_row_cells(row)
-            row_values = [cell.text for cell in cells]
-            table_data.append(row_values)
-        return table_data
 
     # Метод для проверки строки по имени и фамилии(предполагаем, что комбинация этих данных в строке всегда уникальная)
     def row_exists(self, first_name, last_name):
@@ -77,3 +70,25 @@ class WebTables(BasePage):
     def set_rows_per_page(self, value:str) -> str:
         select = Select(self.select_rows_per_page.find_element())
         select.select_by_value(value)
+
+    # Метод для поиска ячейки в строке шапки по тексту дочернего элемента
+    def get_header_row_cells_by_text(self, text:str):
+        header_cells = self.header_cells_common_class.find_elements()
+
+        for cell in header_cells:
+            content = cell.find_element(By.CSS_SELECTOR, '.rt-resizable-header-content')
+            if content.text == text:
+                return cell
+        return None
+
+    # Метод для клика по ячейке header в таблице по названию
+    def click_header_cell_by_name(self, name):
+        # Шапка не имеет уникального локатора, поэтому берем 1ый элемент из списка
+        header_row = self.all_rows.find_elements()[0]
+        # Получаем все ячейки только в шапке
+        header_cells = header_row.find_elements(By.CSS_SELECTOR, '.rt-resizable-header-content')
+        # Клик по нужной ячейке шапки по имени
+        for cell in header_cells:
+            if cell.text == name:
+                cell.click()
+                return cell

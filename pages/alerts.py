@@ -16,3 +16,4 @@ class Alerts(BasePage):
         # Ошибка в локаторе в html вместо #promptButton -> #promtButton
         self.btn_prompt = WebElement(driver, '#promtButton')
         self.prompt_result = WebElement(driver, '#promptResult')
+        self.btn_timer_alert = WebElement(driver, '#timerAlertButton')
