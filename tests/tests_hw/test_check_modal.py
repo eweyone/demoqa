@@ -1,24 +1,18 @@
 import time
 from pages.modal_dialogs import ModalDialogs
-import requests
 import pytest
 
 
-
-# Метод для проверки доступности страницы
-def is_page_available(url:str) -> bool:
-    try:
-        response = requests.head(url, timeout=5)
-        return response.status_code == 200
-    except requests.RequestException:
-        return False
 
 # Тест-кейс
 def test_check_modals(browser):
     modal_dialogs_page = ModalDialogs(browser)
 
+    # Проверка на доступность страницы
+    assert modal_dialogs_page.is_page_available(modal_dialogs_page.base_url)
+
     # Скип теста, если страница недоступна
-    if not is_page_available(modal_dialogs_page.base_url):
+    if not modal_dialogs_page.is_page_available(modal_dialogs_page.base_url):
         pytest.skip(f'{modal_dialogs_page.base_url} is not available')
 
     # Проверка url, наличия кнопок small modal и large modal на странице

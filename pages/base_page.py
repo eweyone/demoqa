@@ -1,6 +1,7 @@
 import logging
 from selenium.common.exceptions import NoAlertPresentException
 from components.components import WebElement
+import requests
 
 
 
@@ -51,4 +52,12 @@ class BasePage:
         try:
             return self.driver.switch_to.alert
         except NoAlertPresentException:
+            return False
+
+    # Метод для проверки доступности страницы
+    def is_page_available(self, url: str) -> bool:
+        try:
+            response = requests.head(url, timeout=5)
+            return response.status_code == 200
+        except requests.RequestException:
             return False
