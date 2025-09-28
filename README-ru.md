@@ -1,11 +1,11 @@
-# DemoQA Automation Tests Project
+# DemoQA Автотесты
 ***
-## Overview
+## Обзор
 ***
-Automated tests for [DemoQA](https://demoqa.com) written in **Python** using **pytest** and **Selenium**.  
-The project follows the **Page Object Model** pattern, tests are organized by site pages, and helper components are included.
+Автотесты для [demoqa.com](https://demoqa.com) на Python с использованием **pytest** и **Selenium**.  
+Реализован паттерн **Page Object Model**, тесты разделены по страницам, присутствуют вспомогательные компоненты.
 ***
-## Project organisation
+## Организация проекта
 ***
 ```text
 demoqa
@@ -74,44 +74,44 @@ demoqa
 │       └── test_window_tab.py
 ```
 ***
-## Installation
+## Установка
 ***
-#### 1. Clone the repository:
+#### 1. Склонировать репозиторий:
 ```
 git clone https://github.com/eweyone/demoqa.git
 cd demoqa
 ```
-#### 2. Install dependencies:
+#### 2. Установить зависимости:
 ```
 pip install -r requirements.txt
 ```
-#### 3. Download chromedriver that matches your local Chrome version(if you don't use the one already provided)
+#### 3. Скачать chromedriver, подходящий к вашей локальной версии браузера Chrome (если не используете тот, что уже лежит в репозитории).
 [Download chromedriver.exe](https://chromedriver.chromium.org/downloads)
 ***
-## Usage
+## Использование
 ***
-#### Run all tests:
+#### Запуск всех тестов:
 ```
 pytest
 ```
-#### Run a specific test file:
+#### Запуск конкретного файла:
 ```
 pytest tests/test_alert.py
 ```
-#### Run with verbose logs:
+#### Запуск с отображением подробных логов:
 ```
 pytest -v -s
 ```
 ***
-## Tech stack
+## Стек технологий
 ***
 * Python 3.9+
-* pytest - testing framework
-* Selenium - browser automation
-* Page Object Model - test code organisation pattern
+* pytest - тестовый фреймворк
+* Selenium - управление браузером
+* Page Object Model - структуризация кода проекта
 ***
-## Notes
+## Примечание
 ***
-* Keep ChromeDriver up to date with your Chrome version for stable runs.
-* Tests are organized by site pages; each page being tested is implemented as a separate Page Object.
-* Additional experiments and homework tasks are stored in ```tests_hw``` and ```test_koup```.
+* Для стабильной работы тестов рекомендуется обновлять ChromeDriver под свою версию браузера.
+* Тесты организованы по страницам [DemoQA](https://demoqa.com/) (каждая тестируемая страница вынесена в отдельный Page Object).
+* Дополнительные домашние задания и эксперименты вынесены в ```tests_hw``` и ```test_koup```.
