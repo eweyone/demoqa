@@ -1,12 +1,12 @@
 # DemoQA Automation Tests Project
-***
+
 ## Overview
-***
+
 Automated tests for [DemoQA](https://demoqa.com) written in **Python** using **pytest** and **Selenium**.  
 The project follows the **Page Object Model** pattern, tests are organized by site pages, and helper components are included.
-***
+
 ## Project organisation
-***
+
 ```text
 demoqa
 ├── .gitignore                   <- Files and folders excluded from git
@@ -73,9 +73,9 @@ demoqa
 │       ├── test_web_tables_hw.py
 │       └── test_window_tab.py
 ```
-***
+
 ## Installation
-***
+
 #### 1. Clone the repository:
 ```
 git clone https://github.com/eweyone/demoqa.git
@@ -87,9 +87,9 @@ pip install -r requirements.txt
 ```
 #### 3. Download chromedriver that matches your local Chrome version(if you don't use the one already provided)
 [Download chromedriver.exe](https://chromedriver.chromium.org/downloads)
-***
+
 ## Usage
-***
+
 #### Run all tests:
 ```
 pytest
@@ -102,16 +102,16 @@ pytest tests/test_alert.py
 ```
 pytest -v -s
 ```
-***
+
 ## Tech stack
-***
+
 * Python 3.9+
 * pytest - testing framework
 * Selenium - browser automation
 * Page Object Model - test code organisation pattern
-***
+
 ## Notes
-***
+
 * Keep ChromeDriver up to date with your Chrome version for stable runs.
 * Tests are organized by site pages; each page being tested is implemented as a separate Page Object.
 * Additional experiments and homework tasks are stored in ```tests_hw``` and ```test_koup```.

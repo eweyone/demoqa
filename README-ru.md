@@ -1,12 +1,12 @@
 # DemoQA Автотесты
-***
+
 ## Обзор
-***
+
 Автотесты для [demoqa.com](https://demoqa.com) на Python с использованием **pytest** и **Selenium**.  
 Реализован паттерн **Page Object Model**, тесты разделены по страницам, присутствуют вспомогательные компоненты.
-***
+
 ## Организация проекта
-***
+
 ```text
 demoqa
 ├── .gitignore                   <- Files and folders excluded from git
@@ -73,9 +73,9 @@ demoqa
 │       ├── test_web_tables_hw.py
 │       └── test_window_tab.py
 ```
-***
+
 ## Установка
-***
+
 #### 1. Склонировать репозиторий:
 ```
 git clone https://github.com/eweyone/demoqa.git
@@ -87,9 +87,9 @@ pip install -r requirements.txt
 ```
 #### 3. Скачать chromedriver, подходящий к вашей локальной версии браузера Chrome (если не используете тот, что уже лежит в репозитории).
 [Download chromedriver.exe](https://chromedriver.chromium.org/downloads)
-***
+
 ## Использование
-***
+
 #### Запуск всех тестов:
 ```
 pytest
@@ -102,16 +102,16 @@ pytest tests/test_alert.py
 ```
 pytest -v -s
 ```
-***
+
 ## Стек технологий
-***
+
 * Python 3.9+
 * pytest - тестовый фреймворк
 * Selenium - управление браузером
 * Page Object Model - структуризация кода проекта
-***
+
 ## Примечание
-***
+
 * Для стабильной работы тестов рекомендуется обновлять ChromeDriver под свою версию браузера.
 * Тесты организованы по страницам [DemoQA](https://demoqa.com/) (каждая тестируемая страница вынесена в отдельный Page Object).
 * Дополнительные домашние задания и эксперименты вынесены в ```tests_hw``` и ```test_koup```.
